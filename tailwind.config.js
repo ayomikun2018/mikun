@@ -4,13 +4,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-         "space":[ 'Space-Grotesk', "sans-serif"],
-         "inter":[ 'Inter', "sans-serif"],
-         "calistoga":[ 'Calistoga', "cursive"]
-       
-      }
+        space: ["Space-Grotesk", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        calistoga: ["Calistoga", "cursive"],
+      },
+    },
+  },
+  variants: {
+    extend: {
+      scale: ["group-hover"],
+      opacity: ["group-hover"],
     },
   },
   plugins: [],
-}
-
+};

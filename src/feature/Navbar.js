@@ -36,7 +36,7 @@ const Navbar = () => {
             className="text-white lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <MenuIcon  className="text-[#24315E] "/>
+            <MenuIcon className="text-[#24315E] " />
           </button>
         </div>
         <div className=" md:mx-auto md:flex md:justify-between md:py-4 md:space-x-4 ">
@@ -47,41 +47,43 @@ const Navbar = () => {
 
             <ul className="mt-4 md:mt-0 md:flex md:space-x-8  ">
               <li>
-                <Link to="#home" className="text-[#24315E]">
+                <a href="#home" smooth className="text-[#24315E]">
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#about" className="text-[#24315E]">
+                <a href="#about" smooth className="text-[#24315E]">
                   About
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#portfolio" className="text-[#24315E]">
+                <a href="#portfolio" smooth className="text-[#24315E]">
                   Portfolio
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#services" className="text-[#24315E]">
+                <a href="#services" smooth className="text-[#24315E]">
                   Services
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="#contact" className="text-[#24315E]">
+                <a href="#contact" smooth className="text-[#24315E]">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
-
-            <button className=" font-space block md:hidden bg-[#24315E] text-white py-1 px-6 w-50% ">
-              Download CV
-            </button>
+            <a href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing" target="_blank" rel="noopener noreferrer" >
+              <button className=" font-space block md:hidden bg-[#24315E] text-white py-1 px-6 w-50% ">
+                Download CV
+              </button>
+            </a>
           </div>
-          
         </div>
-        <button className="hidden font-calistoga text-sm  lg:block bg-[#24315E] text-white py-3 px-10 ">
-              Download CV
-            </button>
+        <a href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <button className="hidden font-calistoga text-sm  lg:block bg-[#24315E] text-white py-3 px-10 ">
+            Download CV
+          </button>
+        </a>
       </div>
     </nav>
   );
