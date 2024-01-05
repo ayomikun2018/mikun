@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Navbar from "./feature/Navbar";
 import picture from "./images/IMG_5960_2-removebg-preview.png";
@@ -17,7 +17,7 @@ import about from "./images/marvin-meyer-SYTO3xs06fU-unsplash.jpg";
 import project1 from "./images/Screenshot 2023-04-19 at 12.19.57.png";
 import project2 from "./images/Screenshot 2023-05-08 at 18.08.38.png";
 import project3 from "./images/img1.png";
-import { TextField } from "@mui/material";
+import { Button, Snackbar, SnackbarContent, TextField } from "@mui/material";
 import whiteSmalldots from "./images/whiteSmalldots.png";
 import quote from "./images/quote2.webp";
 import { useFormik } from "formik";
@@ -40,6 +40,12 @@ const validationSchema = Yup.object().shape({
 });
 
 function App() {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarColor, setSnackbarColor] = useState("");
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -47,7 +53,7 @@ function App() {
       message: "",
     },
     validationSchema,
-onSubmit:( values, { resetForm }) => {
+    onSubmit: (values, { resetForm }) => {
       emailjs
         .send(
           "service_t6exg8s",
@@ -61,7 +67,9 @@ onSubmit:( values, { resetForm }) => {
             response.status,
             response.text
           );
-          resetForm()
+          resetForm();
+          setSnackbarColor("#4CAF50");
+          setSnackbarOpen(true);
         })
         .catch((error) => {
           console.error("Email sending failed:", error);
@@ -201,9 +209,10 @@ onSubmit:( values, { resetForm }) => {
                       Everyday develop a skill
                     </h2>
                     <p className="text-[#abb8c3] text-lg ">
-                      While at Neverbland over the last few years, I've worked
-                      on web and product solutions for a range of startups, in a
-                      variety of industries. Work skills used
+                      Over the last few years, I've worked on web and product
+                      solutions for a range of startups, in a variety of
+                      industries like Fintech and educational spaces. Some of
+                      the work skills used
                     </p>
                   </div>
                 </div>
@@ -306,7 +315,7 @@ onSubmit:( values, { resetForm }) => {
                   </h2>
                 </h2>
                 <a href="#contact" smooth>
-                  <button className="bg-[#24315E] py-4 w-[25%] text-white font-inter ">
+                  <button className="  w-[25%] font-inter  text-white bg-[#24315E] px-4 py-4 hover:bg-white hover:outline-dotted hover:text-slate-800  ">
                     Hire Me
                   </button>
                 </a>
@@ -404,7 +413,7 @@ onSubmit:( values, { resetForm }) => {
               click away.
             </h1>
             <a href="#contact">
-              <button className="bg-[#24315E] hover:bg-white hover:text-[#24315E]  lg:py-4 lg:px-10  px-3 py-3  text-white font-inter ">
+              <button className="bg-[#24315E] hover:bg-white hover:text-[#24315E]  lg:py-4 lg:px-10  px-3 py-3  text-white font-inter hover:outline-dotted ">
                 Get Started
               </button>
             </a>
@@ -495,9 +504,30 @@ onSubmit:( values, { resetForm }) => {
                 helperText={formik.touched.message && formik.errors.message}
               />
 
-              <button className=" bg-[#06D8A7] hover:bg-[#24315E] hover:text-white   py-4  text-[#24315E]">
+              <button className=" bg-[#06D8A7] hover:bg-[#24315E] hover:text-white   py-4  text-[#24315E] rounded-md">
                 Submit Message
               </button>
+              <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={4000}
+                onClose={handleCloseSnackbar}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                severity="success"
+              >
+                <SnackbarContent
+                  style={{ backgroundColor: snackbarColor, color: "white" }}
+                  message="Message Sent!"
+                  action={
+                    <Button
+                      color="inherit"
+                      size="small"
+                      onClick={handleCloseSnackbar}
+                    >
+                      X
+                    </Button>
+                  }
+                />
+              </Snackbar>
               <div className="flex  gap-4  items-center justify-center">
                 <div className="bg-[#24315E] rounded-full h-10 w-10 ">
                   {" "}

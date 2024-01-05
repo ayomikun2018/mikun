@@ -20,14 +20,14 @@
 // };
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   //bg-[#06D8A7]
   return (
     <nav className=" font-inter py-2   border-b-gray-500 border-b ">
       <div className="container mx-auto px-5 py-2 md:flex md:items-center md:justify-between">
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between ">
           <div className="text-[#24315E] font-semibold text-xl">
             <div className=" bg-amber-200 italic rounded"> . Mikun</div>
           </div>
@@ -44,7 +44,6 @@ const Navbar = () => {
             <div className="hidden text-[#24315E] font-semibold text-xl">
               <div className=" bg-amber-200 italic rounded"> . Mikun</div>
             </div>
-
             <ul className="mt-4 md:mt-0 md:flex md:space-x-8  ">
               <li>
                 <a href="#home" smooth className="text-[#24315E]">
@@ -72,17 +71,25 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            <a href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing" target="_blank" rel="noopener noreferrer" >
-              <button className=" font-space block md:hidden bg-[#24315E] text-white py-1 px-6 w-50% ">
+            <a
+              href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className=" font-space block md:hidden bg-[#24315E] text-white py-1 px-6 w-30% ">
                 Download CV
               </button>
             </a>
           </div>
         </div>
-        <a href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <button className="hidden font-calistoga text-sm  lg:block bg-[#24315E] text-white py-3 px-10 ">
+        <a
+          href="https://drive.google.com/file/d/1w1lZsDUIJ0-Y6z_jEJR285N9wZs4D_wh/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <li className="hidden font-calistoga text-md  lg:block text-white bg-[#24315E] px-4 py-4 hover:bg-white hover:outline-dotted hover:text-slate-800     ">
             Download CV
-          </button>
+          </li>
         </a>
       </div>
     </nav>
